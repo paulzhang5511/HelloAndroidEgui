@@ -11,7 +11,7 @@ fn android_main(android_app: AndroidApp) {
     use egui_winit::winit::platform::android::EventLoopBuilderExtAndroid;
     use log::LevelFilter;
 
-    std::env::set_var("RUST_LOG", "rustlib=debug");
+    std::env::set_var("RUST_LOG", "rustlib=debug,winit=debug");
     android_logger::init_once(
         android_logger::Config::default()
             .with_max_level(LevelFilter::Trace)
@@ -19,11 +19,12 @@ fn android_main(android_app: AndroidApp) {
             .with_filter(FilterBuilder::new().parse("debug").build()),
     );
 
+    let android_app1 = android_app.clone();
     let event_loop = winit::event_loop::EventLoop::<UserEvent>::with_user_event()
-        .with_android_app(android_app)
+        .with_android_app(android_app1)
         .build()
         .unwrap();
-    let mut app = App::new();
+    let mut app = App::new(android_app);
     event_loop.run_app(&mut app).unwrap();
 }
 

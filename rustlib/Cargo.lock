@@ -1584,6 +1584,7 @@ dependencies = [
  "egui-wgpu",
  "egui-winit",
  "egui_demo_lib",
+ "jni",
  "log",
  "ndk",
  "ndk-sys 0.6.0+11769913",
