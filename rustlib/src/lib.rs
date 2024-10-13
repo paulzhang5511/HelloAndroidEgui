@@ -22,10 +22,18 @@ fn android_main(android_app: AndroidApp) {
     let android_app1 = android_app.clone();
     let event_loop = winit::event_loop::EventLoop::<UserEvent>::with_user_event()
         .with_android_app(android_app1)
-        .build()
-        .unwrap();
-    let mut app = App::new(android_app);
-    event_loop.run_app(&mut app).unwrap();
+        .build();
+    match event_loop {
+        Ok(event_loop) => {
+            event_loop.listen_device_events(winit::event_loop::DeviceEvents::Never);
+            let mut app = App::new(android_app);
+            event_loop.run_app(&mut app).unwrap();
+        }
+        Err(e) => {
+            log::error!("Failed to create event loop: {:?}", e);
+            return;
+        }
+    }
 }
 
 /// A custom event type for the winit app.

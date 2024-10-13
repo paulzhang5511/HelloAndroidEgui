@@ -2,6 +2,7 @@ package com.example.android.helloegui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -51,6 +52,12 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
                 context.startActivity(Intent(context, EguiActivity::class.java))
             }) {
                 Text(text = "Go Egui")
+            }
+
+            Button(onClick = {
+                Toast.makeText(context, "Hello $name!", Toast.LENGTH_SHORT).show()
+            }) {
+                Text("Click Toast")
             }
         }
     }
