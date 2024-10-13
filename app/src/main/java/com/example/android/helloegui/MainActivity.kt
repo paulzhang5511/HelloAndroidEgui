@@ -51,14 +51,14 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
             Button(onClick = {
                 context.startActivity(Intent(context, EguiActivity::class.java))
             }) {
-                Text(text = "Go Egui")
+                Text(text = "Go Winit")
             }
 
-            Button(onClick = {
-                Toast.makeText(context, "Hello $name!", Toast.LENGTH_SHORT).show()
-            }) {
-                Text("Click Toast")
-            }
+//            Button(onClick = {
+//                Toast.makeText(context, "Hello $name!", Toast.LENGTH_SHORT).show()
+//            }) {
+//                Text("Click Toast")
+//            }
         }
     }
 }

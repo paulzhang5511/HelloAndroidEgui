@@ -66,21 +66,6 @@ impl ApplicationHandler<UserEvent> for App {
                         // event_loop.set_control_flow(winit::event_loop::ControlFlow::Wait);
                         event_loop.exit();
                         // unsafe {
-                        //     debug!("调用 unsafe...");
-                        //     let vm_ptr = self.android_app.vm_as_ptr();
-                        //     let vm = unsafe { JavaVM::from_raw(vm_ptr as *mut jni::sys::JavaVM) }
-                        //         .unwrap();
-                        //     let mut env = vm.get_env().unwrap();
-                        //     let activity_ptr = self.android_app.activity_as_ptr();
-                        //     if !activity_ptr.is_null() {
-                        //         let activity =
-                        //             unsafe { JObject::from_raw(activity_ptr as jobject) };
-                        //         env.call_method(activity, "finishMe", "()V", &[]).unwrap();
-                        //         debug!("调用 finishMe");
-                        //     }
-                        //     // event_loop.set_control_flow(winit::event_loop::ControlFlow::Wait);
-                        //     // event_loop.exit();
-                        // }
                     }
                 }
             }
